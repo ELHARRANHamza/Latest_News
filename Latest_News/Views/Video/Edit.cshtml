@@ -1,0 +1,44 @@
+﻿@model Latest_News.ViewModel.Video_ViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<br>
+<br>
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-10">
+            <h4 class="alert alert-info">
+                Are you sure you want to Edit this?
+            </h4>
+            <hr />
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="titre" class="control-label"></label>
+                    <input asp-for="titre" class="form-control" />
+                    <span asp-validation-for="titre" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group">
+*
+                    <video controls style="width:300px;height:280px">
+                        <source src="~/Video_News/@Model.Vid" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="form-group">
+                    <label asp-for="file" class="control-label">Upload Video</label>
+                    <input asp-for="file" type="file" name="file" class="form-control" />
+                    <span asp-validation-for="file" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="genric-btn primary circle arrow" />
+                    <a asp-action="Index" class="genric-btn info-border circle arrow">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

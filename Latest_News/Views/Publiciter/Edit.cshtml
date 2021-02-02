@@ -1,0 +1,53 @@
+﻿@model Latest_News.ViewModel.Publiciter_ViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<br>
+<br>
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-10">
+            <h4 class="alert alert-info">
+                Are you sure you want to Edit this?
+            </h4>
+            <hr />
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="id" class="control-label"></label>
+                    <input asp-for="id" class="form-control" />
+                    <span asp-validation-for="id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Titre" class="control-label"></label>
+                    <input asp-for="Titre" class="form-control" />
+                    <span asp-validation-for="Titre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name_Company" class="control-label">Name Company</label>
+                    <input asp-for="Name_Company" class="form-control" />
+                    <span asp-validation-for="Name_Company" class="text-danger"></span>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label asp-for="img" class="control-label">image</label>
+                    <br>
+                    <br>
+                    <img src="~/Image_Pub/@Model.img" style="width:260px;height:260px;border-radius:50%">
+                    <span asp-validation-for="img" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="file" class="control-label">Upload Image</label>
+                    <input type="file" name="file" asp-for="file" class="form-control" />
+                    <span asp-validation-for="file" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="genric-btn primary circle arrow" />
+                    <a asp-action="Index" class="genric-btn info-border circle arrow">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

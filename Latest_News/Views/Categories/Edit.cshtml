@@ -1,0 +1,48 @@
+﻿@model Latest_News.ViewModel.CategoriesViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-10">
+            <h4 class="alert alert-info">
+                Are you sure you want to Edit this?
+            </h4>
+            <hr />
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="id" class="control-label"></label>
+                    <input asp-for="id" readonly class="form-control" />
+                    <span asp-validation-for="id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="cat_Nom" class="control-label">Catégories</label>
+                    <input asp-for="cat_Nom" class="form-control" />
+                    <span asp-validation-for="cat_Nom" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="img" class="control-label">image</label>
+                    <br>
+                    <br>
+                    <img src="~/Image_Cat/@Model.img" style="width:260px;height:260px;border-radius:50%">
+                    <span asp-validation-for="img" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="file" class="control-label">Upload Image</label>
+                    <input type="file" name="file" asp-for="file" class="form-control" />
+                    <span asp-validation-for="file" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="genric-btn primary circle arrow" />
+                    <a asp-action="Index" class="genric-btn info-border circle arrow">Back to List</a>
+                </div>
+            </form>
+        </div>
+</div>
+</div>

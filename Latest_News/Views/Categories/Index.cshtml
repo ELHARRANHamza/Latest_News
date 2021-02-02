@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Latest_News.Models.Categories>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+<br />
+<div class="container">
+    <div class="row">
+
+        <p>
+            <a asp-action="Create" class="genric-btn success circle arrow">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+Catégories
+                    </th>
+                    <th>
+Images
+                    </th>
+                    <th>
+                        Mettre a jour
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                       
+                        <td>
+                            @Html.DisplayFor(modelItem => item.cat_Nom)
+                        </td>
+                        <td>
+                            <img src="~/Image_Cat/@item.img" style="width:70px;height:70px;border-radius:50%" />
+                        </td>
+                        <td>
+                            <a href="/Categories/Details/@item.id" class="genric-btn warning small" style="width:10px;padding-left:8px;padding-right:20px">
+                                <span class="fa fa-eye"></span>
+                            </a>
+                            <a href="/Categories/Edit/@item.id" class="genric-btn primary small" style="width:10px;padding-left:8px;padding-right:20px">
+                                <span class="fa fa-edit"></span>
+                            </a>
+                            <a href="/Categories/Delete/@item.id" class="genric-btn danger small" style="width:10px;padding-left:8px;padding-right:20px">
+                                <span class="fa fa-trash"></span>
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

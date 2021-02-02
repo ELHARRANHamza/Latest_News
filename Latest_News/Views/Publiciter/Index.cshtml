@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Latest_News.Models.Publiciter>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+<br />
+<div class="container">
+    <div class="row">
+
+        <p>
+            <a asp-action="Create" class="genric-btn success circle arrow">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Titre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.date_Publiciter)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.img)
+                    </th>
+                    <th>
+                        Mettre a jour
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                   
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Titre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.date_Publiciter)
+                        </td>
+                        <td>
+                            <img src="~/Image_Pub/@item.img" style="width:70px;height:70px;border-radius:50%" />
+                        </td>
+
+                      
+                        <td>
+                            <a href="/Publiciter/Details/@item.id" class="genric-btn warning small" style="width:10px;padding-left:8px;padding-right:20px">
+                                <span class="fa fa-eye"></span>
+                            </a>
+                            <a href="/Publiciter/Edit/@item.id" class="genric-btn primary small" style="width:10px;padding-left:8px;padding-right:20px">
+                                <span class="fa fa-edit"></span>
+                            </a>
+                            <a href="/Publiciter/Delete/@item.id" class="genric-btn danger small" style="width:10px;padding-left:8px;padding-right:20px">
+                                <span class="fa fa-trash"></span>
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

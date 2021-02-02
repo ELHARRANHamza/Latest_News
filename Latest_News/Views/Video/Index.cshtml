@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Latest_News.Models.Video_News>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<br />
+<div class="container">
+    <div class="row">
+
+        <p>
+            <a asp-action="Create" class="genric-btn success circle arrow">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Titre
+                    </th>
+                    <th>
+                      date Publicité
+                    </th>
+                    <th>
+                      Video
+                    </th>
+                   
+                    <th>
+                        Mettre a jour
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.titre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.date_Pub)
+                        </td>
+                        <td>
+                            <video controls style="width:100px;height:80px">
+                                <source src="~/Video_News/@item.Vid" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </td>
+                        
+                        <td>
+                            <a href="/Video/Details/@item.id" class="genric-btn warning small" style="width:10px;padding-left:8px;padding-right:20px">
+                                <span class="fa fa-eye"></span>
+                            </a>
+                            <a href="/Video/Edit/@item.id" class="genric-btn primary small" style="width:10px;padding-left:8px;padding-right:20px">
+                                <span class="fa fa-edit"></span>
+                            </a>
+                            <a href="/Video/Delete/@item.id" class="genric-btn danger small" style="width:10px;padding-left:8px;padding-right:20px">
+                                <span class="fa fa-trash"></span>
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

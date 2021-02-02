@@ -1,0 +1,47 @@
+﻿@model Latest_News.Models.Video_News
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br>
+<br>
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-10">
+            <h4>Details Video</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.titre)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.titre)
+                </dd>
+                <dt>
+                    Date Publicité
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.date_Pub)
+                </dd>
+                <dt>
+                   Video
+                </dt>
+                <dd>
+                    <video controls style="width:300px;height:280px">
+                        <source src="~/Video_News/@Model.Vid" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </dd>
+
+            </dl>
+            
+            <div style="padding-bottom:20px">
+                <a asp-action="Edit" asp-route-id="@Model.id" class="genric-btn info circle arrow">Edit</a>
+                <a asp-action="Index" class="genric-btn success-border circle arrow">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
+

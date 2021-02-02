@@ -1,0 +1,46 @@
+﻿@model Latest_News.ViewModel.AddImage_ViewModel
+
+@{
+    ViewData["Title"] = "Change_Image";
+}
+<br>
+<br>
+<div class="container">
+    <div class="row">
+       
+        <div class="col-md-10">
+            @if (Model.image != null)
+            {
+                <h4 class="alert alert-info">Change Image</h4>
+            }
+            @if (Model.image == null)
+            {
+                <h4 class="alert alert-info">Add Image</h4>
+            }
+            <hr />
+            <form asp-action="Change_Image" enctype="multipart/form-data">
+                @if (Model.image != null)
+                {
+                    <div style="text-align:center">
+                        <img style="border-radius:50%;width:250px;height:250px" class="img-thumbnail" src="~/Image_User/@Model.image" />
+                    </div>
+                }
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="file" class="control-label">Upload Image</label>
+                    <input type="file" asp-for="file" name="file" class="form-control" />
+                    <span asp-validation-for="file" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="genric-btn success circle arrow" />
+                    <a asp-action="Index" class="genric-btn success-border circle arrow">
+                        Annuler<span class="lnr lnr-arrow-right"></span>
+                    </a>
+                </div>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>
+
+

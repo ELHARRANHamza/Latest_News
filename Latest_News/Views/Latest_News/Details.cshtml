@@ -1,0 +1,48 @@
+﻿@model Latest_News.Models.Latest_News
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br>
+<br>
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-10">
+            <h4>Details Latest News</h4>
+            <hr />
+            <dl class="dl-horizontal">
+               
+                <dt>
+                    @Html.DisplayNameFor(model => model.Titre)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Titre)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd>
+        @Model.Description
+                </dd>
+                <dt>
+                    Date Publicité
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.date_Publiciter)
+                </dd>
+                <dt>
+                    Image
+                </dt>
+                <dd>
+                    <img src="~/Image_News/@Model.Image" style="width:260px;height:260px;border-radius:50%">
+                </dd>
+            </dl>
+            <div style="padding-bottom:20px">
+                <a asp-action="Edit" asp-route-id="@Model.id" class="genric-btn info circle arrow">Edit</a>
+                <a asp-action="Index" class="genric-btn success-border circle arrow">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

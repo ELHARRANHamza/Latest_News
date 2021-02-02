@@ -1,0 +1,41 @@
+﻿@model Latest_News.Models.Categories
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br>
+<br>
+<div class="container">
+    <div class="row">
+     
+        <div class="col-md-10">
+            <h4>Details Catégories</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.id)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.id)
+                </dd>
+                <dt>
+                    Catégories
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.cat_Nom)
+                </dd>
+                <dt>
+                    Image
+                </dt>
+                <dd>
+                    <img src="~/Image_Cat/@Model.img" style="width:260px;height:260px;border-radius:50%">
+                </dd>
+            </dl>
+            <div style="padding-bottom:20px">
+                <a asp-action="Edit" asp-route-id="@Model.id" class="genric-btn info circle arrow">Edit</a>
+                <a asp-action="Index" class="genric-btn success-border circle arrow">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
